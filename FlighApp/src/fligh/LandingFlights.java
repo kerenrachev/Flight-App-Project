@@ -5,6 +5,6 @@ public class LandingFlights extends Flights {
 	
 	public LandingFlights(String name, int hour,int min, String takeOff, int day, int month,int year) {
 		super(name,hour,min,takeOff,"Israel",day,month,year);
-		//test1
+		//test
 	}
 }
