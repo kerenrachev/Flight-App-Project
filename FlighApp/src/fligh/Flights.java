@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Flights {
- 
+    ///test eyal
 	private boolean ifLanding=false;
 	private int numOfFligh;
 	private String companyName;
