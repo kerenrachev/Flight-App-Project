@@ -8,12 +8,14 @@ public class Programm {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		
+		
 		LandingFlights t1= new LandingFlights ("El-Al2",23,47,"Moscow",1,11,2020);
 		TakingOfFlights t2= new TakingOfFlights ("El-Al",0,12,"New York",7,4,2021);
-		TakingOfFlights t3= new TakingOfFlights ("Eourope Air",12,27,"Yemen",12,11,2020);
+		TakingOfFlights t3= new TakingOfFlights ("Eourope Air",12,27,"Yemen",12,11,2022);
 		ManagingClass.addToLandingArray(t1);
 		ManagingClass.addToTakingOfArray(t2);
-		ManagingClass.addToTakingOfArray(t3);
+
+        ManagingClass.addToTakingOfArray(t3);
 		
 		int choise;
 		Scanner s=new Scanner(System.in);
@@ -56,6 +58,7 @@ public class Programm {
 				
 				break;
 			}
+			
 		} while (choise!=6);
 		
 	}

@@ -4,36 +4,46 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
 public class Flights {
- 
-	private boolean ifLanding=false;
-	private int numOfFligh;
-	private String companyName;
-	private int flighHour;
-	private int flighMinutes;
-	private String takeOff;
-	private String landing;
-	private int day;
-	private int month;
-	private int year;
-	                            //TO DO DTATIC SERIEL NUM OF FLIGHT ******&&&&&&&&&&&&&&&&
+
+	protected LocalDateTime dateTime;
+	protected boolean ifLanding=false;
+	protected int numOfFligh;
+	protected String companyName;
+	protected int flighHour;
+	protected int flighMinutes;
+	protected String takeOff;
+	protected String landing;
+	protected int day;
+	protected int month;
+	protected int year;
+
     public Flights() {
 		
 		this("NoName",0,0,"none","none",0,0,0);
 	}
 	public Flights(String name, int hour,int min, String takeOff,String landing, int day, int month,int year) {
-	//	this.numOfFligh=num;
+        dateTime= LocalDateTime.of(year, month, day, hour, min);
+        setTime(year, month, day, hour, min);
 		this.companyName=name;
-		this.flighHour=hour;
-		this.flighMinutes=min;
 		this.takeOff= takeOff;
 		this.landing=landing;
-		this.day=day;
-		this.month=month;
-		this.year=year;
+		
+	}
+	
+	private void setTime(int year, int month, int day, int hour, int min) {
+		boolean isOk=true;
+		try {
+			
+		}catch(Exception e){
+			isOk=false;
+			System.out.println("Exception has been thrown : "+e.getMessage());
+		}
 		
 	}
 	public Flights(Scanner s) {
@@ -69,7 +79,7 @@ public class Flights {
     
 	@Override
 	public String toString() {
-		return "Num of flight: "+numOfFligh +"\nAirplanesCompany: "+companyName+"\nDate of flight: "+ day+"\\"+month+"\\"+year+"\nFlight Hour: "+flighHour+":"+flighMinutes+"\nYou take off from: "
+		return "Num of flight: "+numOfFligh +"\nAirplanesCompany: "+companyName+"\n"+"Date: "+ dateTime+"\nYou take off from: "
     +takeOff+"\nYou land at: "+landing +"\n***************************************";
 	}
 	
