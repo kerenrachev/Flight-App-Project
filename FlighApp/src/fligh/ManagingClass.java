@@ -11,14 +11,62 @@ public class ManagingClass {
 	public static List <LandingFlights> landingFlights= new ArrayList<>();
 	public static List <TakingOfFlights> takingOfFlights= new ArrayList<>();
 	
-	public static void addToLandingArray(LandingFlights landingFlight) {
-		landingFlights.add(landingFlight);
-	}
+	public static void addToLandingArray(LandingFlights landingFlight) {  //compare to return -1 for less, 0 for equal,1 for greater
+		if(landingFlights.size()==0) {
+			landingFlights.add(landingFlight);
+		}
+		else {
+			int size=landingFlights.size();
+			int counter=0;
+			for(int i=0;i<=size;i++) {
+				if(i==size) {
+					landingFlights.add(landingFlight);
+				    break;
+				}
+				if((landingFlights.get(i).dateTime.compareTo(landingFlight.dateTime))>0) {
+					landingFlights.add(i, landingFlight);
+					break;
+				}
+				if((landingFlights.get(i).dateTime.compareTo(landingFlight.dateTime))==0) {
+					landingFlights.add(i, landingFlight);
+					break;
+				}
+				if((landingFlights.get(i).dateTime.compareTo(landingFlight.dateTime))<0) {
+					continue;
+					}
+		    	}
+			}
+		}
 
 	public static void addToTakingOfArray(TakingOfFlights takingOf) {
-		takingOfFlights.add(takingOf);
+		if(takingOfFlights.size()==0) {
+			takingOfFlights.add(takingOf);
+		}
+		else {
+			int size=takingOfFlights.size();
+			int counter=0;
+			for(int i=0;i<=size;i++) {
+				if(i==size) {
+					takingOfFlights.add(takingOf);
+				    break;
+				}
+				if((takingOfFlights.get(i).dateTime.compareTo(takingOf.dateTime))>0) {
+					takingOfFlights.add(i, takingOf);
+					break;
+				}
+				if((takingOfFlights.get(i).dateTime.compareTo(takingOf.dateTime))==0) {
+					takingOfFlights.add(i, takingOf);
+					break;
+				}
+				if((takingOfFlights.get(i).dateTime.compareTo(takingOf.dateTime))<0) {
+					continue;
+					}
+		    	}
+			}
+		}
 		
-	}
+		
+	
 
 	public static String printArrayList (String string) {
 		String str="";
@@ -41,6 +89,7 @@ public class ManagingClass {
 			landingFlights.get(i).save(print);
 		}
 		print.close();
+	
 	}
 
 	public static void saveAlltakeOff() throws FileNotFoundException {
