@@ -22,6 +22,8 @@ public class ManagingClass {
 				if(i==size) {
 					landingFlights.add(landingFlight);
 				    break;
+
+//eyal test
 				}
 				if((landingFlights.get(i).dateTime.compareTo(landingFlight.dateTime))>0) {
 					landingFlights.add(i, landingFlight);
