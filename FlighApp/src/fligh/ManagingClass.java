@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ManagingClass {
-	
+	//anatTest
 	public static List <LandingFlights> landingFlights= new ArrayList<>();
 	public static List <TakingOfFlights> takingOfFlights= new ArrayList<>();
 	
