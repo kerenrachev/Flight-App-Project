@@ -56,6 +56,7 @@ public class Programm {
 				
 				break;
 			}
+			
 		} while (choise!=6);
 		
 	}
