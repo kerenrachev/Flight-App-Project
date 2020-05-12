@@ -23,6 +23,8 @@ public class ManagingClass {
 					landingFlights.add(landingFlight);
 				    break;
 				    
+				    
+				    
 				}
 				if((landingFlights.get(i).dateTime.compareTo(landingFlight.dateTime))>0) {
 					landingFlights.add(i, landingFlight);
