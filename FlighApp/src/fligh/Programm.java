@@ -15,6 +15,7 @@ public class Programm {
 		ManagingClass.addToLandingArray(t1);
 		ManagingClass.addToTakingOfArray(t2);
 
+		
         ManagingClass.addToTakingOfArray(t3);
 		
 		int choise;
