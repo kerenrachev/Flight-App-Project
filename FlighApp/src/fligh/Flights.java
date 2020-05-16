@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Flights {
-
+//test
 	protected LocalDateTime dateTime;
 	protected boolean ifLanding=false;
 	protected int numOfFligh;
