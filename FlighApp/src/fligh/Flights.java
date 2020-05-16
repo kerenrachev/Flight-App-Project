@@ -63,9 +63,24 @@ public class Flights {
 		return "Num of flight: "+numOfFligh +"\nAirplanesCompany: "+companyName+"\n"+"Date: "+ dateTime+"\nYou take off from: "
     +takeOff+"\nYou land at: "+landing +"\n***************************************";
 	}
-	
-	
-	
+	public LocalDateTime getDateTime() {
+		return dateTime;
+	}
+	public boolean isIfLanding() {
+		return ifLanding;
+	}
+	public int getNumOfFligh() {
+		return numOfFligh;
+	}
+	public String getCompanyName() {
+		return companyName;
+	}
+	public String getTakeOff() {
+		return takeOff;
+	}
+	public String getLanding() {
+		return landing;
+	}
 	
 	
 }
