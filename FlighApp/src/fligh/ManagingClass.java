@@ -3,17 +3,25 @@ package fligh;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class ManagingClass {
 
 	public static List <LandingFlights> landingFlights= new ArrayList<>();
+	public static int numOflandingFlights=1;
+	public static int numOfTakeOffFlights=2;
 	public static List <TakingOfFlights> takingOfFlights= new ArrayList<>();
 	
-	public static void addToLandingArray(LandingFlights landingFlight) {  //compare to return -1 for less, 0 for equal,1 for greater
+	public static boolean addToLandingArray(LandingFlights landingFlight) {  //compare to return -1 for less, 0 for equal,1 for greater
+		boolean isOk=true;
+		try {
 		if(landingFlights.size()==0) {
 			landingFlights.add(landingFlight);
+			return isOk=true;
 		}
 		else {
 			int size=landingFlights.size();
@@ -37,11 +45,25 @@ public class ManagingClass {
 					}
 		    	}
 			}
+		numOflandingFlights++;
+		return isOk=true;
+     	}
+		catch(Exception e){
+			return isOk=false;
 		}
-
-	public static void addToTakingOfArray(TakingOfFlights takingOf) {
+		}
+    public void setCurrenTakinfOff(int num) {
+    	this.numOfTakeOffFlights=num;
+    }
+    public void setCurrentLanding(int num) {
+    	this.numOflandingFlights=num;
+    }
+	public static boolean addToTakingOfArray(TakingOfFlights takingOf) {
+		boolean isOk=true;
+		try {
 		if(takingOfFlights.size()==0) {
 			takingOfFlights.add(takingOf);
+			return isOk=true;
 		}
 		else {
 			int size=takingOfFlights.size();
@@ -64,6 +86,12 @@ public class ManagingClass {
 					}
 		    	}
 			}
+		numOfTakeOffFlights++;
+		return isOk=true;
+		}
+		catch(Exception e){
+			return isOk=false;
+		}
 		}
 		
 		
@@ -101,7 +129,55 @@ public class ManagingClass {
 		}
 		print.close();
 	}
-	
-	
+
+	public static boolean findFlight(LocalDateTime searchDate) throws FileNotFoundException {
+		updateFlightsFromFile();
+		boolean hasFoundFlights = false;
+		for(int i=0;i<landingFlights.size();i++) {
+			if(landingFlights.get(i).dateTime.compareTo(searchDate)==0) {
+				hasFoundFlights=true;
+				System.out.println(landingFlights.get(i));
+			}
+		}
+		for(int i=0;i<takingOfFlights.size();i++) {
+			if(takingOfFlights.get(i).dateTime.compareTo(searchDate)==0) {
+				hasFoundFlights=true;
+				System.out.println(takingOfFlights.get(i));
+			}
+		}
+		return hasFoundFlights;
+	}
+
+	private static void updateFlightsFromFile() throws FileNotFoundException {
+		File file= new File ("takeOff.txt");
+		Scanner s= new Scanner (file);
+		takingOfFlights.removeAll(takingOfFlights);
+		landingFlights.removeAll(landingFlights);
+		for(int i=0;i<numOfTakeOffFlights;i++) {
+			String compony= s.nextLine();
+			String from= s.nextLine();
+			String to=s.nextLine();
+			String str = s.nextLine();
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+			LocalDateTime dateTime = LocalDateTime.parse(str, formatter);
+			TakingOfFlights takeOff= new TakingOfFlights(compony,to,dateTime);
+			takingOfFlights.add(takeOff);
+		}
+		file= new File ("Landings.txt");
+		s= new Scanner(file);
+		for(int i=0;i<numOflandingFlights;i++) {
+			String compony= s.nextLine();
+			String from= s.nextLine();
+			String to=s.nextLine();
+			String str = s.nextLine();
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+			LocalDateTime dateTime = LocalDateTime.parse(str, formatter);
+			LandingFlights landing= new LandingFlights(compony, from,dateTime);
+			landingFlights.add(landing);
+			
+		}
+		
+		
+	}	
 
 }
