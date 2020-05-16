@@ -14,8 +14,6 @@ public class Programm {
 		TakingOfFlights t3= new TakingOfFlights ("Eourope Air",12,27,"Yemen",12,11,2022);
 		ManagingClass.addToLandingArray(t1);
 		ManagingClass.addToTakingOfArray(t2);
-
-		
         ManagingClass.addToTakingOfArray(t3);
 		
 		int choise;
@@ -85,9 +83,7 @@ public class Programm {
 		int month=s.nextInt();
 		int year=s.nextInt();
 		LandingFlights landings= new LandingFlights( companyName, flighHour, flighMinutes, takeOff, day, month, year);
-		ManagingClass.addToLandingArray(landings);
-		
-		
+		ManagingClass.addToLandingArray(landings);	
 	}
 	private static void CreateTakingOfFlight() throws FileNotFoundException {
 		System.out.println("Please fill in the following details: \n"
