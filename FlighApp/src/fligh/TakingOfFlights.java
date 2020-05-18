@@ -4,12 +4,12 @@ import java.time.LocalDateTime;
 
 public class TakingOfFlights extends Flights {
 
-	public TakingOfFlights( String name, int hour,int min,String landing, int day, int month,int year) {
-		super(name,hour,min,"Israel",landing,day,month,year);
+	public TakingOfFlights( String company, int hour,int min,String landingTo, int day, int month,int year) {
+		super(company,hour,min,"Israel",landingTo,day,month,year);
 		
 	}
 
-	public TakingOfFlights(String compony, String to, LocalDateTime dateTime) {
-		super (compony,"Israel",to,dateTime);
+	public TakingOfFlights(String compony, String landingTo, LocalDateTime dateTime) {
+		super (compony,landingTo,"Israel",dateTime);
 	}
 }

@@ -12,28 +12,28 @@ import java.util.Scanner;
 public class Flights {
 //test
 	protected LocalDateTime dateTime;
-	protected boolean ifLanding=false;
+	//protected boolean ifLanding=false;
 	protected int numOfFligh;
 	protected String companyName;
-	protected String takeOff;
-	protected String landing;
+	protected String takeOffFrom;
+	protected String landingTo;
 
     public Flights() {
 		
 		this("NoName",0,0,"none","none",0,0,0);
 	}
-	public Flights(String name, int hour,int min, String takeOff,String landing, int day, int month,int year) {
+	public Flights(String nameOfCompany, int hour,int min, String takeOffFrom,String landingTo, int day, int month,int year) {
         setTime(year, month, day, hour, min);
-		this.companyName=name;
-		this.takeOff= takeOff;
-		this.landing=landing;
+		this.companyName=nameOfCompany;
+		this.takeOffFrom= takeOffFrom;
+		this.landingTo=landingTo;
 		
 	}
 	
-	public Flights(String compony, String from,String to, LocalDateTime dateTime2) {
+	public Flights(String compony, String landingTo,String takeOffFrom, LocalDateTime dateTime2) {
 		this.companyName=compony;
-		this.takeOff=from;
-		this.landing=to;
+		this.takeOffFrom=takeOffFrom;
+		this.landingTo=landingTo;
 		this.dateTime=dateTime2;
 	}
 	private void setTime(int year, int month, int day, int hour, int min) {
@@ -49,8 +49,8 @@ public class Flights {
     public void save (PrintWriter print) throws FileNotFoundException {
 
     	print.write(companyName+"\n");
-    	print.write(takeOff+"\n");
-    	print.write(landing+"\n");
+    	print.write(takeOffFrom+"\n");
+    	print.write(landingTo+"\n");
     	String date= dateTime.toString();
     	date.replace('T', ' ');
     	print.write(dateTime+"\n");
@@ -61,14 +61,14 @@ public class Flights {
 	@Override
 	public String toString() {
 		return "Num of flight: "+numOfFligh +"\nAirplanesCompany: "+companyName+"\n"+"Date: "+ dateTime+"\nYou take off from: "
-    +takeOff+"\nYou land at: "+landing +"\n***************************************";
+    +takeOffFrom+"\nYou land at: "+landingTo +"\n***************************************";
 	}
 	public LocalDateTime getDateTime() {
 		return dateTime;
 	}
-	public boolean isIfLanding() {
+/*	public boolean isIfLanding() {
 		return ifLanding;
-	}
+	}*/
 	public int getNumOfFligh() {
 		return numOfFligh;
 	}
@@ -76,10 +76,10 @@ public class Flights {
 		return companyName;
 	}
 	public String getTakeOff() {
-		return takeOff;
+		return takeOffFrom;
 	}
 	public String getLanding() {
-		return landing;
+		return landingTo;
 	}
 	
 	

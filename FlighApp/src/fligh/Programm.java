@@ -21,7 +21,7 @@ public class Programm {
 		
 		do {
 			do {
-				System.out.println("Please enter valid choise (between 0-5 ) ");
+				System.out.println("Please enter valid choise (between 0-6 ) ");
 				choise = s.nextInt();
 			} while (choise < 0 || choise > 6);
 			switch (choise) {
@@ -61,11 +61,29 @@ public class Programm {
 					System.out.println();
 					System.out.println("Saved, thank you. Now you can search for a flight in your updates list");
 					saveAllFlights();
-					findFligh();
+					System.out.println("Choose your searcing options,\nType the number of the chosen option:\n"
+							+ "1)Date and Hour\n"
+							+ "2)Destanation\n"
+							+ "3)Date, hour and destanation.\n");
+					int choice = s.nextInt();
+					switch (choice) {
+					case 1:
+						findFlighByDateAndHour();
+						break;
+
+					case 2:
+						findFlighByDestanation();
+						break;
+					case 3:
+						findFlighByDateAndHourAndDestanation();
+						break;
+					}
+					
+					
 				}
 				else 
 				{
-					findFligh();
+					findFlighByDateAndHour();
 				}
 				break;
 			case 7:
@@ -76,7 +94,7 @@ public class Programm {
 		
 	}
 
-	private static void findFligh() throws FileNotFoundException {
+	private static void findFlighByDateAndHourAndDestanation() throws FileNotFoundException {
 		Scanner s = new Scanner(System.in);
 		System.out.println("Please fill in the following details: \n" + "1)Flight hour: \n"
 				+ "2)Flight minute: \n" + "3)day: \n" + "4)Month: \n" + "5)Year: \n");
@@ -86,8 +104,53 @@ public class Programm {
 		int day = s.nextInt();
 		int month = s.nextInt();
 		int year = s.nextInt();
+		System.out.println("Please type the number of your choice:\n" 
+								+ "1)I want to see landing flights from this destanation.\n" 
+								+ "2)I want to see takeoff flights to this destanation.\n" 
+								+ "3)I want to see both landing flights and takeoff flights to this destantion\n");
+		int typeOfFlight = s.nextInt();
 		LocalDateTime localDate= LocalDateTime.of(year,month,day,flighHour,flighMinutes);
-		if(!ManagingClass.findFlight(localDate)) {
+		
+		System.out.println("Please type the wanted destanation:\n");
+		s.nextLine();
+		String destanation = s.nextLine();
+		if (!ManagingClass.findFlight(localDate,destanation,typeOfFlight)) {
+			System.out.println("No flights to this destanation.");
+		}
+	}
+
+	private static void findFlighByDestanation() throws FileNotFoundException {
+		Scanner s =new Scanner(System.in);
+		System.out.println("Please type the wanted destanation:\n");
+		//s.nextLine();
+		String destanation = s.nextLine();
+		System.out.println("Please type the number of your choice:\n"
+				+ "1)I want to see landing flights from this destanation.\n"
+				+ "2)I want to see takeoff flights to this destanation.\n"
+				+ "3)I want to see both landing flights and takeoff flights to this destantion\n");
+		int typeOfFlight = s.nextInt();
+		if (!ManagingClass.findFlight(destanation,typeOfFlight)) {
+			System.out.println("No flights to this destanation.");
+		}
+	}
+
+	private static void findFlighByDateAndHour() throws FileNotFoundException {
+		Scanner s = new Scanner(System.in);
+		System.out.println("Please fill in the following details: \n" + "1)Flight hour: \n"
+				+ "2)Flight minute: \n" + "3)day: \n" + "4)Month: \n" + "5)Year: \n");
+
+		int flighHour = s.nextInt();
+		int flighMinutes = s.nextInt();
+		int day = s.nextInt();
+		int month = s.nextInt();
+		int year = s.nextInt();
+		System.out.println("Please type the number of your choice:\n" 
+								+ "1)I want to see landing flights from this destanation.\n" 
+								+ "2)I want to see takeoff flights to this destanation.\n" 
+								+ "3)I want to see both landing flights and takeoff flights to this destantion\n");
+		int typeOfFlight = s.nextInt();
+		LocalDateTime localDate= LocalDateTime.of(year,month,day,flighHour,flighMinutes);
+		if(!ManagingClass.findFlight(localDate,typeOfFlight)) {
 			System.out.println("No flights in this date.");
 		}
 		
