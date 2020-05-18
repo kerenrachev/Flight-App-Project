@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class Flights {
 //test
 	protected LocalDateTime dateTime;
-	//protected boolean ifLanding=false;
+	protected boolean ifLanding=false;
 	protected int numOfFligh;
 	protected String companyName;
 	protected String takeOffFrom;
@@ -22,24 +22,24 @@ public class Flights {
 		
 		this("NoName",0,0,"none","none",0,0,0);
 	}
-	public Flights(String nameOfCompany, int hour,int min, String takeOffFrom,String landingTo, int day, int month,int year) {
+	public Flights(String companyName, int hour,int min, String takeOffFrom,String landingTo, int day, int month,int year) {
         setTime(year, month, day, hour, min);
-		this.companyName=nameOfCompany;
+		this.companyName=companyName;
 		this.takeOffFrom= takeOffFrom;
 		this.landingTo=landingTo;
 		
 	}
 	
-	public Flights(String compony, String landingTo,String takeOffFrom, LocalDateTime dateTime2) {
-		this.companyName=compony;
+	public Flights(String companyName, String landingTo,String takeOffFrom, LocalDateTime dateTime) {
+		this.companyName=companyName;
 		this.takeOffFrom=takeOffFrom;
 		this.landingTo=landingTo;
-		this.dateTime=dateTime2;
+		this.dateTime=dateTime;
 	}
 	private void setTime(int year, int month, int day, int hour, int min) {
 		boolean isOk=true;
 		try {
-			this.dateTime = dateTime= LocalDateTime.of(year, month, day, hour, min); 
+			this.dateTime = LocalDateTime.of(year, month, day, hour, min); 
 		}catch(Exception e){
 			isOk=false;
 			System.out.println("Exception has been thrown : "+e.getMessage());
@@ -66,9 +66,9 @@ public class Flights {
 	public LocalDateTime getDateTime() {
 		return dateTime;
 	}
-/*	public boolean isIfLanding() {
+	public boolean isIfLanding() {
 		return ifLanding;
-	}*/
+	}
 	public int getNumOfFligh() {
 		return numOfFligh;
 	}
