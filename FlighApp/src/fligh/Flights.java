@@ -63,6 +63,7 @@ public class Flights {
 		return "Num of flight: "+numOfFligh +"\nAirplanesCompany: "+companyName+"\n"+"Date: "+ dateTime+"\nYou take off from: "
     +takeOffFrom+"\nYou land at: "+landingTo +"\n***************************************";
 	}
+	
 	public LocalDateTime getDateTime() {
 		return dateTime;
 	}
