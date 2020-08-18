@@ -85,6 +85,7 @@ public class ManagingClass {
 					if ((takingOfFlights.get(i).dateTime.compareTo(takingOf.dateTime)) < 0) {
 						continue;
 					}
+					
 				}
 			}
 			numOfTakeOffFlights++;
