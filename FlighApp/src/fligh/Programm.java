@@ -27,6 +27,7 @@ public class Programm {
 			switch (choise) {
 
 			case 1:
+				
 				CreateTakingOfFlight();
 
 				break;
@@ -196,11 +197,6 @@ public class Programm {
 			isOk=ManagingClass.addToTakingOfArray(takingOf);
 		} while (!isOk);
 	
-		
-	}
-	private static void searchForFligh() {
-		
-		
 		
 	}
 	
