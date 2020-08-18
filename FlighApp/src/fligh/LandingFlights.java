@@ -14,5 +14,6 @@ public class LandingFlights extends Flights {
 	public LandingFlights(String companyName, String takingOffFrom, LocalDateTime dateTime) {
 		super(companyName,"Israel",takingOffFrom,dateTime);
 		
+		
 	}
 }
