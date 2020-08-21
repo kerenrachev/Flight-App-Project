@@ -5,7 +5,7 @@ import java.security.spec.MGF1ParameterSpec;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
-public class Programm {
+public class Program {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		
