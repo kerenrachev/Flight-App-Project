@@ -10,7 +10,6 @@ public class TakingOffFlights extends Flights {
 
 	public TakingOffFlights(String companyName, String landingTo, LocalDateTime dateTime) {
 		
-		
 		super (companyName,landingTo,"Israel",dateTime);
 	}
 }
