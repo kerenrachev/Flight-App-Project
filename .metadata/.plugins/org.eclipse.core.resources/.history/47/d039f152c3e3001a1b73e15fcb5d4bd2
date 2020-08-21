@@ -4,60 +4,10 @@ import java.security.spec.MGF1ParameterSpec;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
-import javax.swing.text.html.HTML;
-
 public class Program {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		System.out.println("Working");
-        System.out.println("\r\n" + 
-        		"<!DOCTYPE html>\r\n" + 
-        		"<html>\r\n" + 
-        		"<head>\r\n" + 
-        		"<meta charset=\"windows-1255\">\r\n" + 
-        		"<title>Flight With Us</title>\r\n" + 
-        		"</head>\r\n" + 
-        		"<style>\r\n" + 
-        		"h1 {\r\n" + 
-        		"  color: white;\r\n" + 
-        		"  text-align: center;\r\n" + 
-        		"}\r\n" + 
-        		"h2{\r\n" + 
-        		"  text-align: center;\r\n" + 
-        		"  font-size: small;\r\n" + 
-        		"}\r\n" + 
-        		"body{\r\n" + 
-        		"   background-image: url(\"https://monroeaerospace.com/blog/wp-content/uploads/2019/08/airplane-landing-lights-874x452.jpg\") ;\r\n" + 
-        		"   background-size: cover;\r\n" + 
-        		"}\r\n" + 
-        		"div{\r\n" + 
-        		"   background-color: rgba(5,4,2,0.5);\r\n" + 
-        		"   width:850px;\r\n" + 
-        		"   height: 500px;\r\n" + 
-        		"   margin-left:auto;\r\n" + 
-        		"   margin-right:auto;\r\n" + 
-        		"   padding: 15px; \r\n" + 
-        		"   align-content: center;\r\n" + 
-        		"   }\r\n" + 
-        		"</style>\r\n" + 
-        		"<body>\r\n" + 
-        		"<h1> Flight app </h1>\r\n" + 
-        		"<div>\r\n" + 
-        		"<p>\r\n" + 
-        		"<button type=\"Button\">Create takingOff flight</button>\r\n" + 
-        		"<button type=\"Button\">Create landing flight</button>\r\n" + 
-        		"<button type=\"Button\">Show takinfOf flights</button>\r\n" + 
-        		"<button type=\"Button\">Show landing flights</button>\r\n" + 
-        		"<button type=\"Button\">Find flight</button>\r\n" + 
-        		"<h2> </h2>\r\n" + 
-        		"</p>\r\n" + 
-        		"</div>\r\n" + 
-        		"\r\n" + 
-        		"</body>\r\n" + 
-        		"</html>");
-				
-		
-		
 /*
 		LandingFlights t1= new LandingFlights ("El-Al2",23,47,"Moscow",1,11,2020);
 		TakingOffFlights t2= new TakingOffFlights ("El-Al",0,12,"New York",7,4,2021);
