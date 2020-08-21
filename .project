@@ -1,29 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-<<<<<<< HEAD
-<<<<<<< HEAD
-	<name>flightApp</name>
-=======
-	<name>FlighWithUs</name>
->>>>>>> branch 'master' of https://github.com/kerenrachev/FlighWithUs.git
-=======
-	<name>KerenTestt</name>
-<<<<<<< HEAD
->>>>>>> branch 'master' of https://github.com/anatMo/FlighWithUs.git
-=======
->>>>>>> branch 'master' of https://github.com/kerenrachev/FlighWithUs.git
->>>>>>> branch 'master' of https://github.com/kerenrachev/FlighWithUs.git
+	<name>Project2</name>
 	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
-		<buildCommand>
-			<name>org.eclipse.jdt.core.javabuilder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
 	</buildSpec>
 	<natures>
-		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
 </projectDescription>

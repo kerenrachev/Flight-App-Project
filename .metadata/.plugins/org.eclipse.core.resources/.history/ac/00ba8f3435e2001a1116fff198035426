@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="windows-1255">
+<title>"HELLO"</title>
+</head>
+<style>
+h1 {
+  background-color: navy;
+  color: white;
+  text-align: center;
+}
+h2{
+  text-align: center;
+  font-size: small;
+}
+body{
+   background-color: gray;
+}
+
+div.transbox {
+  margin: 30px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.6;
+}
+</style>
+<body>
+<h1> Flight app </h1>
+<h2> Please choose one from the following actions: <h2>
+<button type="Button">Create takingOff flight</button>
+<button type="Button">Create landing flight</button>
+<button type="Button">Show takinfOf flights</button>
+<button type="Button">Show landing flights</button>
+<button type="Button">Find flight</button>
+
+
+<script> alert ('hey')</script>
+</body>
+</html>

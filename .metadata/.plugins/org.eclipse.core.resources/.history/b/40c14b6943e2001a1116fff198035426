@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="windows-1255">
+<title>"HELLO"</title>
+</head>
+<style>
+h1 {
+  background-color: navy;
+  color: white;
+  text-align: center;
+}
+h2{
+  text-align: center;
+  font-size: small;
+}
+body{
+   background-image: url("https://monroeaerospace.com/blog/wp-content/uploads/2019/08/airplane-landing-lights-874x452.jpg") ;
+}
+div{
+   background-color: rgba(5,4,2,0.5);
+   width:850px;
+   height: 100%;
+   margin-left:auto;
+   margin-right:auto;
+   padding: 15px; }
+
+</style>
+
+<body>
+
+<h1> Flight app </h1>
+
+<div>
+<p>
+<button type="Button">Create takingOff flight</button>
+<button type="Button">Create landing flight</button>
+<button type="Button">Show takinfOf flights</button>
+<button type="Button">Show landing flights</button>
+<button type="Button">Find flight</button>
+</p>
+</div>
+
+</body>
+</html>
