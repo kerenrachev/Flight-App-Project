@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <libraryInfos>
-<libraryInfo home="C:\Program Files\Java\jre1.8.0_191" version="1.8.0_191">
+<libraryInfo home="C:\Users\User\Desktop\HTML\java 8 jdk se" version="1.8.0_231">
 <bootpath>
-<entry path="C:\Program Files\Java\jre1.8.0_191\lib\resources.jar"/>
-<entry path="C:\Program Files\Java\jre1.8.0_191\lib\rt.jar"/>
-<entry path="C:\Program Files\Java\jre1.8.0_191\lib\sunrsasign.jar"/>
-<entry path="C:\Program Files\Java\jre1.8.0_191\lib\jsse.jar"/>
-<entry path="C:\Program Files\Java\jre1.8.0_191\lib\jce.jar"/>
-<entry path="C:\Program Files\Java\jre1.8.0_191\lib\charsets.jar"/>
-<entry path="C:\Program Files\Java\jre1.8.0_191\lib\jfr.jar"/>
-<entry path="C:\Program Files\Java\jre1.8.0_191\classes"/>
+<entry path="C:\Users\User\Desktop\HTML\java 8 jdk se\lib\resources.jar"/>
+<entry path="C:\Users\User\Desktop\HTML\java 8 jdk se\lib\rt.jar"/>
+<entry path="C:\Users\User\Desktop\HTML\java 8 jdk se\lib\sunrsasign.jar"/>
+<entry path="C:\Users\User\Desktop\HTML\java 8 jdk se\lib\jsse.jar"/>
+<entry path="C:\Users\User\Desktop\HTML\java 8 jdk se\lib\jce.jar"/>
+<entry path="C:\Users\User\Desktop\HTML\java 8 jdk se\lib\charsets.jar"/>
+<entry path="C:\Users\User\Desktop\HTML\java 8 jdk se\lib\jfr.jar"/>
+<entry path="C:\Users\User\Desktop\HTML\java 8 jdk se\classes"/>
 </bootpath>
 <extensionDirs>
-<entry path="C:\Program Files\Java\jre1.8.0_191\lib\ext"/>
+<entry path="C:\Users\User\Desktop\HTML\java 8 jdk se\lib\ext"/>
 <entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
 </extensionDirs>
 <endorsedDirs>
-<entry path="C:\Program Files\Java\jre1.8.0_191\lib\endorsed"/>
+<entry path="C:\Users\User\Desktop\HTML\java 8 jdk se\lib\endorsed"/>
 </endorsedDirs>
 </libraryInfo>
 </libraryInfos>
