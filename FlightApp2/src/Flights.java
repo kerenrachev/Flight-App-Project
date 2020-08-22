@@ -2,6 +2,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -11,6 +12,8 @@ import java.util.Scanner;
 public class Flights {
 //test
 	protected LocalDateTime dateTime;
+	protected String time;
+	protected String date;
 	protected boolean ifLanding=false;
 	protected int numOfFligh;
 	protected String companyName;
@@ -20,6 +23,12 @@ public class Flights {
     public Flights() {
 		
 		this("NoName",0,0,"none","none",0,0,0);
+	}
+	public Flights(String name, String destination, String time, String date) {
+		this.companyName=name;
+		this.time=time;
+		this.landingTo=destination;
+		this.date=date;
 	}
 	public Flights(String companyName, int hour,int min, String takeOffFrom,String landingTo, int day, int month,int year) {
         setTime(year, month, day, hour, min);
@@ -35,6 +44,7 @@ public class Flights {
 		this.landingTo=landingTo;
 		this.dateTime=dateTime;
 	}
+
 	private void setTime(int year, int month, int day, int hour, int min) {
 		boolean isOk=true;
 		try {
@@ -50,9 +60,11 @@ public class Flights {
     	print.write(companyName+"\n");
     	print.write(takeOffFrom+"\n");
     	print.write(landingTo+"\n");
-    	String date= dateTime.toString();
+    	print.write(time+"\n");
+    	print.write(date + "\n");
+     /* String date= dateTime.toString();
     	date.replace('T', ' ');
-    	print.write(dateTime+"\n");
+    	print.write(dateTime+"\n"); */
 
     }
 

@@ -62,32 +62,8 @@ public class ManagingClass {
 	public static boolean addToTakingOfArray(TakingOffFlights takingOf) {
 		boolean isOk = true;
 		try {
-			if (takingOfFlights.size() == 0) {
-				takingOfFlights.add(takingOf);
-				return isOk = true;
-			} else {
-				int size = takingOfFlights.size();
-				int counter = 0;
-				for (int i = 0; i <= size; i++) {
-					if (i == size) {
-						takingOfFlights.add(takingOf);
-						break;
-					}
-					if ((takingOfFlights.get(i).dateTime.compareTo(takingOf.dateTime)) > 0) {
-						takingOfFlights.add(i, takingOf);
-						break;
-					}
-					if ((takingOfFlights.get(i).dateTime.compareTo(takingOf.dateTime)) == 0) {
-						takingOfFlights.add(i, takingOf);
-						break;
-					}
-					if ((takingOfFlights.get(i).dateTime.compareTo(takingOf.dateTime)) < 0) {
-						continue;
-					}
-					
-				}
-			}
-			numOfTakeOffFlights++;
+			   takingOfFlights.add(takingOf);
+			   numOfTakeOffFlights++;
 			return isOk = true;
 		} catch (Exception e) {
 			return isOk = false;

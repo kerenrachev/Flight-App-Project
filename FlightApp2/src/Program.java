@@ -1,7 +1,9 @@
 
 import java.io.FileNotFoundException;
 import java.security.spec.MGF1ParameterSpec;
+import java.sql.Time;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Scanner;
 
 import javax.swing.text.html.HTML;
@@ -9,52 +11,195 @@ import javax.swing.text.html.HTML;
 public class Program {
 
 	public static void main(String[] args) throws FileNotFoundException {
-		System.out.println("Working");
-        System.out.println("\r\n" + 
-        		"<!DOCTYPE html>\r\n" + 
-        		"<html>\r\n" + 
-        		"<head>\r\n" + 
-        		"<meta charset=\"windows-1255\">\r\n" + 
-        		"<title>Flight With Us</title>\r\n" + 
-        		"</head>\r\n" + 
-        		"<style>\r\n" + 
-        		"h1 {\r\n" + 
-        		"  color: white;\r\n" + 
-        		"  text-align: center;\r\n" + 
-        		"}\r\n" + 
-        		"h2{\r\n" + 
-        		"  text-align: center;\r\n" + 
-        		"  font-size: small;\r\n" + 
-        		"}\r\n" + 
-        		"body{\r\n" + 
-        		"   background-image: url(\"https://monroeaerospace.com/blog/wp-content/uploads/2019/08/airplane-landing-lights-874x452.jpg\") ;\r\n" + 
-        		"   background-size: cover;\r\n" + 
-        		"}\r\n" + 
-        		"div{\r\n" + 
-        		"   background-color: rgba(5,4,2,0.5);\r\n" + 
-        		"   width:850px;\r\n" + 
-        		"   height: 500px;\r\n" + 
-        		"   margin-left:auto;\r\n" + 
-        		"   margin-right:auto;\r\n" + 
-        		"   padding: 15px; \r\n" + 
-        		"   align-content: center;\r\n" + 
-        		"   }\r\n" + 
-        		"</style>\r\n" + 
-        		"<body>\r\n" + 
-        		"<h1> Flight app </h1>\r\n" + 
-        		"<div>\r\n" + 
-        		"<p>\r\n" + 
-        		"<button type=\"Button\">Create takingOff flight</button>\r\n" + 
-        		"<button type=\"Button\">Create landing flight</button>\r\n" + 
-        		"<button type=\"Button\">Show takinfOf flights</button>\r\n" + 
-        		"<button type=\"Button\">Show landing flights</button>\r\n" + 
-        		"<button type=\"Button\">Find flight</button>\r\n" + 
-        		"<h2> </h2>\r\n" + 
-        		"</p>\r\n" + 
-        		"</div>\r\n" + 
-        		"\r\n" + 
-        		"</body>\r\n" + 
-        		"</html>");
+        if (args.length==0) {
+			System.out.println("<!DOCTYPE html>\r\n" + "				<html>\r\n" + "				<head>\r\n"
+					+ "				<meta charset='windows-1255'>\r\n"
+					+ "				<title>Flight With Us</title>\r\n" + "				</head>\r\n"
+					+ "				<style>\r\n" + "				h1 {\r\n" + "				  color: white;\r\n"
+					+ "				  text-align: center;\r\n" + "				}\r\n" + "				h2{\r\n"
+					+ "				  text-align: center;\r\n" + "				  font-size: small;\r\n"
+					+ "				}\r\n" + "				body{\r\n"
+					+ "				   background-image: url('https://monroeaerospace.com/blog/wp-content/uploads/2019/08/airplane-landing-lights-874x452.jpg') ;\r\n"
+					+ "				   background-size: cover;\r\n" + "				}\r\n" + "				div{\r\n"
+					+ "				   background-color: rgba(5,4,2,0.5);\r\n" + "				   width:850px;\r\n"
+					+ "				   height: 500px;\r\n" + "				   margin-left:auto;\r\n"
+					+ "				   margin-right:auto;\r\n" + "				   padding: 15px; \r\n"
+					+ "				   align-content: center;\r\n" + "				   }\r\n"
+					+ "				</style>\r\n" + "				<body>\r\n"
+					+ "				<h1> Flight app </h1>\r\n" + "				<div>\r\n" + "				<p>\r\n"
+					+ "				<button onclick=\"window.location.href='addTakingOffFlight'\" type=\"button\" value=\"CreateTakingOffFlight\" >Create takingoff flight</button>\r\n" + 
+					"				<button onclick=\"window.location.href='addLandingFlight'\" type=\"button\" value=\"CreateLandingFlight\" >Create landing flight</button>\r\n" + 
+					"				<button onclick=\"window.location.href='showTakeOfFlight'\" type=\"button\" value=\"ShowTakeOffFlights\" >Show takingoff flights</button>\r\n" + 
+					"				<button onclick=\"window.location.href='showLandingFlight'\" type=\"button\" value=\"ShowLandingFlights\" >Show landing flights</button>\r\n" + 
+					"                <button type='Button'>Find flight</button> "
+					+ "				</p>\r\n" + "				</div>\r\n" + "\r\n" + "				</body>\r\n"
+					+ "				</html>");
+		}
+        if(args.length>0&&args[0].equals("1")) {
+        	System.out.println("landings");
+        	System.out.println("<!DOCTYPE html>\r\n" + 
+        			"				<html>\r\n" + 
+        			"				<head>\r\n" + 
+        			"				<meta charset='windows-1255'>\r\n" + 
+        			"				<title>Flight With Us</title>\r\n" + 
+        			"				</head>\r\n" + 
+        			"				<style>\r\n" + 
+                    "               list  p {\r\n" + 
+                    "                    font: arial;\r\n" + 
+                    "                    font-size: 14px;\r\n" + 
+                    "                    background-color: yellow ;\r\n" + 
+                    "                }"+
+        			"				h1 {\r\n" + 
+        			"				  color: white;\r\n" + 
+        			"				  text-align: center;\r\n" + 
+        			"				}\r\n" + 
+        			"				h2{\r\n" + 
+        			"				  text-align: center;\r\n" + 
+        			"				  font-size: small;\r\n"
+        			+ "               color:white;\r\n       " + 
+        			"				}\r\n" + 
+        			"				body{\r\n" + 
+        			"				   background-image: url('https://monroeaerospace.com/blog/wp-content/uploads/2019/08/airplane-landing-lights-874x452.jpg') ;\r\n" + 
+        			"				   background-size: cover;\r\n" + 
+        			"				}\r\n" + 
+        			"				div{\r\n" + 
+        			"				   background-color: rgba(5,4,2,0.5);\r\n" + 
+        			"				   width:850px;\r\n" + 
+        			"				   height: 500px;\r\n" + 
+        			"				   margin-left:auto;\r\n" + 
+        			"				   margin-right:auto;\r\n" + 
+        			"				   padding: 15px; \r\n" + 
+        			"				   align-content: center;\r\n" + 
+        			"				   }\r\n" + 
+        			"				</style>\r\n" + 
+        			"				<body>\r\n" + 
+        			"				<h1> Flight app </h1>\r\n" + 
+        			"				<div>\r\n" + 
+        			"				<p>\r\n" + 
+          			"				<button onclick=\"window.location.href='addTakingOffFlight'\" type=\"button\" value=\"CreateTakingOffFlight\" >Create takingoff flight</button>\r\n" + 
+          			"				<button onclick=\"window.location.href='addLandingFlight'\" type=\"button\" value=\"CreateLandingFlight\" >Create landing flight</button>\r\n" + 
+          			"				<button onclick=\"window.location.href='showTakeOfFlight'\" type=\"button\" value=\"ShowTakeOffFlights\" >Show takingoff flights</button>\r\n" + 
+          			"				<button onclick=\"window.location.href='showLandingFlight'\" type=\"button\" value=\"ShowLandingFlights\" >Show landing flights</button>\r\n" + 
+          			"                <button type='Button'>Find flight</button>"+ 
+        			"               <p>&nbsp;</p>\r\n" + 
+        			"               <p>takeOff.txt</p>\r\n" + 
+        			"               <p>&nbsp;</p>\r\n" + 
+        			"               <div id=\'list'\">\r\n" + 
+        			"               <p><iframe src=\'C:/Users/User/Documents/GitHub/FlighWithUs/FlightApp2/src/takeOff.txt\' frameborder=\'1\' height=\'400\'\r\n" + 
+        			"               width='95%''></iframe></p>\r\n" + 
+        			"               </div>"+
+        			"				</p>\r\n" + 
+        			"				</div>\r\n" + 
+        			"               \r\n" + 
+        			"				</body>\r\n" + 
+        			"				</html>");
+        }
+        if(args.length>0&&args[0].equals("2")) {
+        	System.out.println("Show taking off flights!!");
+        }
+       
+        if(args.length>0&&args[0].equals("4")) {
+        	
+        	System.out.println("<!DOCTYPE html>\r\n" + 
+        			"				<html>\r\n" + 
+        			"				<head>\r\n" + 
+        			"				<meta charset='windows-1255'>\r\n" + 
+        			"				<title>Flight With Us</title>\r\n" + 
+        			"				</head>\r\n" + 
+        			"				<style>\r\n" + 
+        			"				h1 {\r\n" + 
+        			"				  color: white;\r\n" + 
+        			"				  text-align: center;\r\n" + 
+        			"				}\r\n" + 
+        			"				h2{\r\n" + 
+        			"				  text-align: center;\r\n" + 
+        			"				  font-size: small;\r\n" + 
+        			"				}\r\n" + 
+        			"               h3{ color:white }"+
+        			"				body{\r\n" + 
+        			"             background-image: url('https://monroeaerospace.com/blog/wp-content/uploads/2019/08/airplane-landing-lights-874x452.jpg') ;\r\n"
+ 					+ "				   background-size: cover;\r\n" + "				}\r\n" + "				div{\r\n"
+ 					+ "				   background-color: rgba(5,4,2,0.5);\r\n" + "				   width:850px;\r\n"
+ 					+ "				   height: 500px;\r\n" + "				   margin-left:auto;\r\n"
+ 					+ "				   margin-right:auto;\r\n" + "				   padding: 15px; \r\n"
+ 					+ "				   align-content: center; }</style>"+
+        			"				<body>\r\n" + 
+        			"				<h1> Flight app </h1>\r\n" + 
+        			"				<div>\r\n" + 
+        			"				<p>\r\n" + 
+        			"				<button onclick=\"window.location.href='addTakingOffFlight'\" type=\"button\" value=\"CreateTakingOffFlight\" >Create takingoff flight</button>\r\n" + 
+        			"				<button onclick=\"window.location.href='addLandingFlight'\" type=\"button\" value=\"CreateLandingFlight\" >Create landing flight</button>\r\n" + 
+        			"				<button onclick=\"window.location.href='showTakeOfFlight'\" type=\"button\" value=\"ShowTakeOffFlights\" >Show takingoff flights</button>\r\n" + 
+        			"				<button onclick=\"window.location.href='showLandingFlight'\" type=\"button\" value=\"ShowLandingFlights\" >Show landing flights</button>\r\n" + 
+        			"                <button type='Button'>Find flight</button>" + 
+        			"                <form method=\"POST\"> \r\n" + 
+        			"                <h3>Please fill 'company' , 'Arrives from' , and 'Time' by this order and than press submit! </h3>\r\n" + 
+        			"                <textarea name=\"Company\"></textarea><br>" + 
+        			"                <textarea name=\"Destination\"></textarea><br>" + 
+        			"                <textarea name=\"Time\"></textarea><br>" + 
+        			"                <button type=\"submit\" name=\"submit\">Submit</button>\r\n" + 
+        			"                </form>\r\n" + 
+        			"\r\n" + 
+        			"				<h2> </h2>\r\n" + 
+        			"				</p>\r\n" + 
+        			"				</div>\r\n" + 
+        			"\r\n" + 
+        			"				</body>\r\n" + 
+        			"				</html>");
+        }
+        if(args.length>0&&args[0].equals("5")){
+        	// company, destination,time,date
+        	CreateTakingOfFlight(args[1],args[2],args[3],args[4]);
+        	System.out.println("<!DOCTYPE html>\r\n" + 
+        			"<html lang=\"en\">\r\n" + 
+        			"<head>\r\n" + 
+        			"				<meta charset='windows-1255'>\r\n" + 
+        			"				<title>Flight With Us</title>\r\n" + 
+        			"				</head>\r\n" + 
+        			"				<style>\r\n" + 
+        			"				h1 {\r\n" + 
+        			"				  color: white;\r\n" + 
+        			"				  text-align: center;\r\n" + 
+        			"				}\r\n" + 
+        			"				h2{\r\n" + 
+        			"				  text-align: center;\r\n" + 
+        			"				  font-size: big;\r\n" + 
+        			"				  color: white;\r\n" + 
+        			"				}\r\n" + 
+        			"				h3 {color: white}\r\n" + 
+        			"				body{\r\n" + 
+        			"				   background-image: url('https://monroeaerospace.com/blog/wp-content/uploads/2019/08/airplane-landing-lights-874x452.jpg') ;\r\n" + 
+        			"				   background-size: cover;\r\n" + 
+        			"				}\r\n" + 
+        			"				div{\r\n" + 
+        			"				   background-color: rgba(5,4,2,0.5);\r\n" + 
+        			"				    width:850px;\r\n" + 
+        			"					height: 500px;\r\n" + 
+        			"					margin-left:auto;\r\n" + 
+        			"				    margin-right:auto;\r\n" + 
+        			"				    padding: 15px;\r\n" + 
+        			"					align-content: center;\r\n" + 
+        			"				}\r\n" + 
+        			"\r\n" + 
+        			"				</style>\r\n" + 
+        			"				<body>\r\n" + 
+        			"				<h1> Flight app </h1>\r\n" + 
+        			"				<div>\r\n" + 
+        			"				<p>\r\n" + 
+        			"				<button onclick=\"window.location.href='addTakingOffFlight'\" type=\"button\" value=\"CreateTakingOffFlight\" >Create takingoff flight</button>\r\n" + 
+        			"				<button onclick=\"window.location.href='addLandingFlight'\" type=\"button\" value=\"CreateLandingFlight\" >Create landing flight</button>\r\n" + 
+        			"				<button onclick=\"window.location.href='showTakeOfFlight'\" type=\"button\" value=\"ShowTakeOffFlights\" >Show takingoff flights</button>\r\n" + 
+        			"				<button onclick=\"window.location.href='showLandingFlight'\" type=\"button\" value=\"ShowLandingFlights\" >Show landing flights</button>\r\n" + 
+        			"                <button type='Button'>Find flight</button>\r\n" + 
+        			"\r\n" + 
+        			"\r\n" + 
+        			"				<h2> File created successfully! </h2>\r\n" + 
+        			"				</p>\r\n" + 
+        			"				</div>\r\n" + 
+        			"\r\n" + 
+        			"				</body>\r\n" + 
+        			"</html>");
+        }
 				
 		
 		
@@ -226,31 +371,20 @@ public class Program {
 			isOk = ManagingClass.addToLandingArray(landings);
 		} while (!isOk);	
 	}
-	private static void CreateTakingOfFlight() throws FileNotFoundException {
+	
+	private static void CreateTakingOfFlight(String name, String destination , String time, String date) throws FileNotFoundException {
 		boolean isOk=true;
 		do {
-			System.out.println("Please fill in the following details: \n" + "1)Company name: \n" + "2)Flight hour: \n"
-					+ "3)Flight minute: \n" + "4)Landing at..: \n" + "5)day: \n" + "6)Month: \n" + "7)Year: \n");
-			Scanner s = new Scanner(System.in);
-			//int numOfFligh=s.nextInt();
-			String companyName = s.nextLine();
-			int flighHour = s.nextInt();
-			int flighMinutes = s.nextInt();
-			s.nextLine();
-			String landing = s.nextLine();
-			int day = s.nextInt();
-			int month = s.nextInt();
-			int year = s.nextInt();
-			TakingOffFlights takingOf = new TakingOffFlights(companyName, flighHour, flighMinutes, landing, day, month,
-					year);
+			TakingOffFlights takingOf = new TakingOffFlights(name, destination, time, date);
 			isOk=ManagingClass.addToTakingOfArray(takingOf);
+			saveAllFlights();
 		} while (!isOk);
 	
 		
 	}
 	
 	public static void saveAllFlights() throws FileNotFoundException {
-		ManagingClass.saveAllLandings();
+	//	ManagingClass.saveAllLandings();
 		ManagingClass.saveAlltakeOff();
 	}
 
