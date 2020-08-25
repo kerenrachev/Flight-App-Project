@@ -11,45 +11,11 @@ import java.util.Scanner;
 public class ManagingClass {
 
 	public static List<LandingFlights> landingFlights = new ArrayList<>();
-	public static int numOflandingFlights = 1;
-	public static int numOfTakeOffFlights = 2;
+	public static int numOflandingFlights = 0;
+	public static int numOfTakeOffFlights = 0;
 	public static List<TakingOffFlights> takingOfFlights = new ArrayList<>();
 
-	public static boolean addToLandingArray(LandingFlights landingFlight) { // compare to return -1 for less, 0 for
-																			// equal,1 for greater
-		boolean isOk = true;
-		try {
-			if (landingFlights.size() == 0) {
-				landingFlights.add(landingFlight);
-				return isOk = true;
-			} else {
-				int size = landingFlights.size();
-				int counter = 0;
-				for (int i = 0; i <= size; i++) {
-					if (i == size) {
-						landingFlights.add(landingFlight);
-						break;
-
-					}
-					if ((landingFlights.get(i).dateTime.compareTo(landingFlight.dateTime)) > 0) {
-						landingFlights.add(i, landingFlight);
-						break;
-					}
-					if ((landingFlights.get(i).dateTime.compareTo(landingFlight.dateTime)) == 0) {
-						landingFlights.add(i, landingFlight);
-						break;
-					}
-					if ((landingFlights.get(i).dateTime.compareTo(landingFlight.dateTime)) < 0) {
-						continue;
-					}
-				}
-			}
-			numOflandingFlights++;
-			return isOk = true;
-		} catch (Exception e) {
-			return isOk = false;
-		}
-	}
+	
 
 	public void setCurrenTakinfOff(int num) {
 		this.numOfTakeOffFlights = num;
@@ -64,6 +30,17 @@ public class ManagingClass {
 		try {
 			   takingOfFlights.add(takingOf);
 			   numOfTakeOffFlights++;
+			return isOk = true;
+		} catch (Exception e) {
+			return isOk = false;
+		}
+	}
+
+	public static boolean addToLandingArray(LandingFlights landingFlight) { 
+		boolean isOk = true;
+		try {
+			   landingFlights.add(landingFlight);
+			   numOflandingFlights++;
 			return isOk = true;
 		} catch (Exception e) {
 			return isOk = false;
@@ -85,6 +62,7 @@ public class ManagingClass {
 	}
 
 	public static void saveAllLandings() throws FileNotFoundException {
+//		updateFlightsFromFile();
 		File file = new File("Landings.txt");
 		PrintWriter print = new PrintWriter(file);
 		for (int i = 0; i < landingFlights.size(); i++) {
@@ -95,6 +73,7 @@ public class ManagingClass {
 	}
 
 	public static void saveAlltakeOff() throws FileNotFoundException {
+//		updateFlightsFromFile();
 		File file = new File("takeOff.txt");
 		PrintWriter print = new PrintWriter(file);
 		for (int i = 0; i < takingOfFlights.size(); i++) {
@@ -126,8 +105,6 @@ public class ManagingClass {
 
 		return hasFoundFlights;
 	}
-
-	// 1=landing,2=takeoff,3=both
 	public static boolean findFlight(String destanation, int typeOfFlight) throws FileNotFoundException {
 		updateFlightsFromFile();
 		boolean hasFoundFlights = false;
@@ -147,7 +124,6 @@ public class ManagingClass {
 				}
 			}
 		}
-
 		return hasFoundFlights;
 	}
 
@@ -178,35 +154,32 @@ public class ManagingClass {
 		return hasFoundFlights;
 	}
 
-	private static void updateFlightsFromFile() throws FileNotFoundException {
+	static void updateFlightsFromFile() throws FileNotFoundException {
 		File file = new File("takeOff.txt");
 		Scanner s = new Scanner(file);
-		takingOfFlights.removeAll(takingOfFlights);
-		landingFlights.removeAll(landingFlights);
-		for (int i = 0; i < numOfTakeOffFlights; i++) {
+		while (s.hasNext()) {
 			String compony = s.nextLine();
 			String from = s.nextLine();
 			String to = s.nextLine();
-			String str = s.nextLine();
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
-			LocalDateTime dateTime = LocalDateTime.parse(str, formatter);
-			TakingOffFlights takeOff = new TakingOffFlights(compony, to, dateTime);
+			String time = s.nextLine();
+			String date= s.nextLine();
+			numOfTakeOffFlights++;
+			TakingOffFlights takeOff = new TakingOffFlights(compony,from, to, time,date);
 			takingOfFlights.add(takeOff);
 		}
-		file = new File("Landings.txt");
-		s = new Scanner(file);
-		for (int i = 0; i < numOflandingFlights; i++) {
+		
+		File file1 = new File("Landings.txt");
+		s = new Scanner(file1);
+		while (s.hasNext()) {
 			String compony = s.nextLine();
 			String from = s.nextLine();
 			String to = s.nextLine();
-			String str = s.nextLine();
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
-			LocalDateTime dateTime = LocalDateTime.parse(str, formatter);
-			LandingFlights landing = new LandingFlights(compony, from, dateTime);
-			landingFlights.add(landing);
-
+			String time = s.nextLine();
+			String date= s.nextLine();
+			numOflandingFlights++;
+			LandingFlights landings = new LandingFlights(compony,from, to, time,date);
+			landingFlights.add(landings);
 		}
-
 	}
 
 }

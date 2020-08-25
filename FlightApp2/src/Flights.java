@@ -22,28 +22,29 @@ public class Flights {
 
     public Flights() {
 		
-		this("NoName",0,0,"none","none",0,0,0);
+		this("NoName","","","none","none");
 	}
-	public Flights(String name, String destination, String time, String date) {
+	public Flights(String name, String takeOffFrom, String destination, String time, String date) {
 		this.companyName=name;
 		this.time=time;
 		this.landingTo=destination;
+		this.takeOffFrom=takeOffFrom;
 		this.date=date;
 	}
-	public Flights(String companyName, int hour,int min, String takeOffFrom,String landingTo, int day, int month,int year) {
-        setTime(year, month, day, hour, min);
-		this.companyName=companyName;
-		this.takeOffFrom= takeOffFrom;
-		this.landingTo=landingTo;
-		
-	}
-	
-	public Flights(String companyName, String landingTo,String takeOffFrom, LocalDateTime dateTime) {
-		this.companyName=companyName;
-		this.takeOffFrom=takeOffFrom;
-		this.landingTo=landingTo;
-		this.dateTime=dateTime;
-	}
+//	public Flights(String companyName, int hour,int min, String takeOffFrom,String landingTo, int day, int month,int year) {
+//        setTime(year, month, day, hour, min);
+//		this.companyName=companyName;
+//		this.takeOffFrom= takeOffFrom;
+//		this.landingTo=landingTo;
+//		
+//	}
+//	
+//	public Flights(String companyName, String landingTo,String takeOffFrom, LocalDateTime dateTime) {
+//		this.companyName=companyName;
+//		this.takeOffFrom=takeOffFrom;
+//		this.landingTo=landingTo;
+//		this.dateTime=dateTime;
+//	}   
 
 	private void setTime(int year, int month, int day, int hour, int min) {
 		boolean isOk=true;
@@ -56,12 +57,17 @@ public class Flights {
 		
 	}
     public void save (PrintWriter print) throws FileNotFoundException {
-
+        System.out.println("############################");
     	print.write(companyName+"\n");
+    	System.out.println(companyName);
     	print.write(takeOffFrom+"\n");
+    	System.out.println(takeOffFrom);
     	print.write(landingTo+"\n");
+    	System.out.println(landingTo);
     	print.write(time+"\n");
+    	System.out.println(time);
     	print.write(date + "\n");
+    	
      /* String date= dateTime.toString();
     	date.replace('T', ' ');
     	print.write(dateTime+"\n"); */
@@ -71,8 +77,7 @@ public class Flights {
     
 	@Override
 	public String toString() {
-		return "Num of flight: "+numOfFligh +"\nAirplanesCompany: "+companyName+"\n"+"Date: "+ dateTime+"\nYou take off from: "
-    +takeOffFrom+"\nYou land at: "+landingTo +"\n***************************************";
+		return "company: " + companyName +" destination: "+ landingTo + " time: "+ time + " date: "+ date;
 	}
 	
 	public LocalDateTime getDateTime() {
