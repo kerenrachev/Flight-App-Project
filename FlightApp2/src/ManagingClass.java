@@ -14,6 +14,7 @@ public class ManagingClass {
 	public static int numOflandingFlights = 0;
 	public static int numOfTakeOffFlights = 0;
 	public static List<TakingOffFlights> takingOfFlights = new ArrayList<>();
+	public static List<Flights> flightsThatHaveBeenFound = new ArrayList<>();
 
 	
 
@@ -62,7 +63,6 @@ public class ManagingClass {
 	}
 
 	public static void saveAllLandings() throws FileNotFoundException {
-//		updateFlightsFromFile();
 		File file = new File("Landings.txt");
 		PrintWriter print = new PrintWriter(file);
 		for (int i = 0; i < landingFlights.size(); i++) {
@@ -73,7 +73,6 @@ public class ManagingClass {
 	}
 
 	public static void saveAlltakeOff() throws FileNotFoundException {
-//		updateFlightsFromFile();
 		File file = new File("takeOff.txt");
 		PrintWriter print = new PrintWriter(file);
 		for (int i = 0; i < takingOfFlights.size(); i++) {
@@ -82,104 +81,58 @@ public class ManagingClass {
 		print.close();
 	}
 
-	// 1=landing,2=takeoff,3=both
-	public static boolean findFlight(LocalDateTime searchDate, int typeOfFlight) throws FileNotFoundException {
-		updateFlightsFromFile();
-		boolean hasFoundFlights = false;
-		if (typeOfFlight == 1 || typeOfFlight == 3) {
-			for (int i = 0; i < landingFlights.size(); i++) {
-				if (landingFlights.get(i).dateTime.compareTo(searchDate) == 0) {
-					hasFoundFlights = true;
-					System.out.println(landingFlights.get(i));
-				}
-			}
-		}
-		if (typeOfFlight == 2 || typeOfFlight == 3) {
-			for (int i = 0; i < takingOfFlights.size(); i++) {
-				if (takingOfFlights.get(i).dateTime.compareTo(searchDate) == 0) {
-					hasFoundFlights = true;
-					System.out.println(takingOfFlights.get(i));
-				}
-			}
-		}
-
-		return hasFoundFlights;
-	}
-	public static boolean findFlight(String destanation, int typeOfFlight) throws FileNotFoundException {
-		updateFlightsFromFile();
-		boolean hasFoundFlights = false;
-		if (typeOfFlight == 1 || typeOfFlight == 3) {
-			for (int i = 0; i < landingFlights.size(); i++) {
-				if (landingFlights.get(i).takeOffFrom.equalsIgnoreCase(destanation)) {
-					hasFoundFlights = true;
-					System.out.println(landingFlights.get(i));
-				}
-			}
-		}
-		if (typeOfFlight == 2 || typeOfFlight == 3) {
-			for (int i = 0; i < takingOfFlights.size(); i++) {
-				if (takingOfFlights.get(i).landingTo.equalsIgnoreCase(destanation)) {
-					hasFoundFlights = true;
-					System.out.println(takingOfFlights.get(i));
-				}
-			}
-		}
-		return hasFoundFlights;
-	}
-
-	public static boolean findFlight(LocalDateTime localDate, String destanation, int typeOfFlight)
-			throws FileNotFoundException {
-		updateFlightsFromFile();
-		boolean hasFoundFlights = false;
-		if (typeOfFlight == 1 || typeOfFlight == 3) {
-			for (int i = 0; i < landingFlights.size(); i++) {
-				if ((landingFlights.get(i).takeOffFrom.equalsIgnoreCase(destanation))
-						&& (landingFlights.get(i).getDateTime().compareTo(localDate)) == 0) {
-					hasFoundFlights = true;
-					System.out.println(landingFlights.get(i));
-				}
-			}
-		}
-		if (typeOfFlight == 2 || typeOfFlight == 3) {
-			for (int i = 0; i < takingOfFlights.size(); i++) {
-				if ((takingOfFlights.get(i).landingTo.equalsIgnoreCase(destanation))
-						&& (takingOfFlights.get(i).getDateTime().compareTo(localDate)) == 0) {
-					hasFoundFlights = true;
-					System.out.println(takingOfFlights.get(i));
-				}
-			}
-		}
-		
-
-		return hasFoundFlights;
-	}
-
 	static void updateFlightsFromFile() throws FileNotFoundException {
 		File file = new File("takeOff.txt");
 		Scanner s = new Scanner(file);
 		while (s.hasNext()) {
-			String compony = s.nextLine();
+			String company = s.nextLine();
 			String from = s.nextLine();
 			String to = s.nextLine();
 			String time = s.nextLine();
 			String date= s.nextLine();
 			numOfTakeOffFlights++;
-			TakingOffFlights takeOff = new TakingOffFlights(compony,from, to, time,date);
+			TakingOffFlights takeOff = new TakingOffFlights(company,from, to, time,date);
 			takingOfFlights.add(takeOff);
 		}
 		
 		File file1 = new File("Landings.txt");
 		s = new Scanner(file1);
 		while (s.hasNext()) {
-			String compony = s.nextLine();
+			String company = s.nextLine();
 			String from = s.nextLine();
 			String to = s.nextLine();
 			String time = s.nextLine();
 			String date= s.nextLine();
 			numOflandingFlights++;
-			LandingFlights landings = new LandingFlights(compony,from, to, time,date);
+			LandingFlights landings = new LandingFlights(company,from, to, time,date);
 			landingFlights.add(landings);
 		}
+	}
+
+	public static void findFlights(String company, String takesOffFrom, String destination, String time, String date) throws FileNotFoundException {
+		for( int i=0;i<landingFlights.size();i++) {
+			if(landingFlights.get(i).compareParameters(company, takesOffFrom,destination,time,date)) {
+				flightsThatHaveBeenFound.add(landingFlights.get(i));
+			}
+		}
+		for ( int i=0;i<takingOfFlights.size();i++) {
+			if(takingOfFlights.get(i).compareParameters(company, takesOffFrom,destination,time,date)) {
+				flightsThatHaveBeenFound.add(takingOfFlights.get(i));
+			}
+		}
+		putFlightsInTextFile();
+		
+	}
+
+	private static void putFlightsInTextFile() throws FileNotFoundException {
+		File file = new File("FlightsThatHaveBeenFound.txt");
+		PrintWriter print = new PrintWriter(file);
+		for (int i = 0; i < flightsThatHaveBeenFound.size(); i++) {
+			System.out.println(flightsThatHaveBeenFound.get(i) +"<br>");
+			flightsThatHaveBeenFound.get(i).save(print);
+		}
+		print.close();
+		
 	}
 
 }

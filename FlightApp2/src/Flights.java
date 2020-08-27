@@ -57,24 +57,43 @@ public class Flights {
 		
 	}
     public void save (PrintWriter print) throws FileNotFoundException {
-        System.out.println("############################");
     	print.write(companyName+"\n");
-    	System.out.println(companyName);
     	print.write(takeOffFrom+"\n");
-    	System.out.println(takeOffFrom);
     	print.write(landingTo+"\n");
-    	System.out.println(landingTo);
     	print.write(time+"\n");
-    	System.out.println(time);
     	print.write(date + "\n");
-    	
-     /* String date= dateTime.toString();
-    	date.replace('T', ' ');
-    	print.write(dateTime+"\n"); */
 
     }
 
-    
+    public boolean compareParameters(String company, String takesOffFrom, String destination, String time, String date) {
+    	boolean isSameFlight=true;
+    	if(!company.isEmpty()) {
+    		if(!companyName.equalsIgnoreCase(company)) {
+    			return false;
+    		}
+    	}
+    	if(!takesOffFrom.isEmpty()) {
+    		if(!this.takeOffFrom.equalsIgnoreCase(takesOffFrom)) {
+    			return false;
+    		}
+    	}
+    	if(!destination.isEmpty()) {
+    		if(!destination.equalsIgnoreCase(landingTo)) {
+    			return false;
+    		}
+    	}
+    	if(!time.isEmpty()) {
+    		if(!this.time.equalsIgnoreCase(time)) {
+    			return false;
+    		}
+    	}
+    	if(!date.isEmpty()) {
+    		if(!this.date.equalsIgnoreCase(date)) {
+    			return false;
+    		}
+    	}
+    	return true;
+    }
 	@Override
 	public String toString() {
 		return "company: " + companyName +" destination: "+ landingTo + " time: "+ time + " date: "+ date;
@@ -98,6 +117,4 @@ public class Flights {
 	public String getLanding() {
 		return landingTo;
 	}
-	
-	
 }
