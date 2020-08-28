@@ -1,0 +1,10 @@
+
+public class nainTest {
+
+	public static void main(String[] args) {
+		Flights test=new Flights("el al ","iran","israel","20:20","2020-08-31");
+		test.isItFirst(test);
+
+	}
+
+}
