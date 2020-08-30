@@ -1,0 +1,4 @@
+<h3><center>Flights that have been found </center></h3>
+
+<h4><table style="width:100%"><tr>
+    <th>Company name</th>    <th>Taking Off from</th>     <th>Destination</th>    <th>Time</th>    <th>Date</th>  </tr><tr><td>keren</td><td>Israel</td><td>Tenerif</td><td>03:45</td><td>2024-08-31</td></tr>

@@ -10,7 +10,7 @@ public class Program {
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		ManagingClass.updateFlightsFromFile();
-        
+        System.out.println("HI");
         if(args.length>0&&args[0].equals("4")) {
         	CreateLandingFlight(args[1],args[2],args[3],args[4]);
         	

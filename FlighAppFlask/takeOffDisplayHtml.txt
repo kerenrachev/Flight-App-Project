@@ -1,0 +1,4 @@
+<h3><center>Taking Off flights table:</center></h3>
+
+<h4><table style="width:100%"><tr>
+    <th>Company name</th>    <th>Taking Off from</th>     <th>Destination</th>    <th>Time</th>    <th>Date</th>  </tr><tr><td>El-Al</td><td>Israel</td><td>Morocco</td><td>02:55</td><td>2020-08-06</td></tr></table></h4>
