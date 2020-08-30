@@ -1,0 +1,4 @@
+<h3><center>Taking Off flights table:</center></h3>
+
+<h4><table style="width:100%"><tr>
+    <th>Company name</th>    <th>Taking Off from</th>     <th>Destination</th>    <th>Time</th>    <th>Date</th>  </tr><tr><td>asd</td><td>Israel</td><td>Morocco</td><td>02:18</td><td>2020-08-04</td></tr><tr><td></td><td>Israel</td><td></td><td>00:44</td><td>2020-08-12</td></tr><tr><td></td><td>Israel</td><td></td><td>00:08</td><td>2020-08-31</td></tr><tr><td>asdasd</td><td>Israel</td><td></td><td>01:10</td><td>2020-08-31</td></tr><tr><td></td><td>Israel</td><td></td><td>02:09</td><td>2020-08-31</td></tr><tr><td></td><td>Israel</td><td></td><td>05:03</td><td>2020-08-31</td></tr><tr><td></td><td>Israel</td><td></td><td>05:06</td><td>2020-08-31</td></tr><tr><td></td><td>Israel</td><td></td><td>05:08</td><td>2020-08-31</td></tr><tr><td></td><td>Israel</td><td></td><td>05:07</td><td>2020-09-01</td></tr></table></h4>
